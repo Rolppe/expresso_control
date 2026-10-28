@@ -1,0 +1,49 @@
+# Painekalibrointi demossa (demo_pico.dart simuloi pcal:-protokollan, anturi lukee true = 0.92 × raw + 0.25).
+# Vaihe 1: ajo → mittari 2.8 → korjaus ja uusinta → oikein. Vaihe 2: ajo → mittari 8.5 → kahden pisteen
+# korjaus → uusinta → oikein → vahvistus → tallennus. Odotus: gain ≈ 0.919, offset ≈ 0.04.
+tapif:Ohita
+tap:Settings
+tap:Pressure calibration
+waitfor:Start 10 s test|10
+shot:p01-alku
+tap:Start 10 s test
+wait:4
+shot:p02-ajo
+waitfor:What did the gauge show|15
+wait:1.5
+shot:p03-valmis
+tapxy:0.5,0.29
+wait:0.5
+type:2.8
+shot:p04-mittari
+tap:Correct and test again
+wait:4
+shot:p05-uusinta
+waitfor:What did the gauge show|15
+wait:1.5
+tap:Reading was correct
+waitfor:Stage 2 of 2|5
+shot:p06-vaihe2
+tap:Start 10 s test
+waitfor:What did the gauge show|20
+wait:1.5
+tapxy:0.5,0.29
+wait:0.5
+type:8.5
+tap:Correct and test again
+wait:4
+waitfor:What did the gauge show|20
+wait:1.5
+shot:p07-vaihe2-korjattu
+tap:Reading was correct
+waitfor:Confirm and save|5
+shot:p08-vahvista
+tap:Confirm and save
+waitfor:Save pressure calibration?|5
+shot:p09-dialogi
+tapeq:Save
+waitfor:Calibration saved|5
+shot:p10-tallennettu
+tap:Done
+wait:1
+shot:p11-paluu

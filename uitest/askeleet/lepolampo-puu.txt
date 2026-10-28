@@ -1,0 +1,6 @@
+# Valmiustilan lämpötila (6.10.2026): Settings → elementtipuu, jotta valikon paikka löytyy
+tapif:Ohita
+tap:Settings
+waitfor:Valmiustilan lämpötila|10
+shot:l01-asetukset
+dump:l01-puu

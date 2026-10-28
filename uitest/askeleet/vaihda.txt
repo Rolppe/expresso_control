@@ -1,0 +1,46 @@
+# Tyytyväisyysvalinta iOS:ssä: lista (Lisää, Vaihda, Peruuta, pitkä painallus), yksityiskohta (Vaihda)
+# ja pysyvyys uudelleenkäynnistyksessä. Edellyttää, että uusin rivi on arvioimaton (luo-uutto.txt).
+tapif:Ohita
+tap:Settings
+tap:Brew logs
+waitfor:samples|10
+shot:v01-lista
+dump:v01-lista
+tap:Lisää tyytyväisyys
+waitfor:Erinomaista|5
+shot:v02-lisaa-sheet
+tap:Hyvä
+waitfor:Tyytyväisyys tallennettu|5
+shot:v03-snack
+wait:4
+tap:Vaihda tyytyväisyys
+waitfor:Peruuta|5
+shot:v04-vaihda-sheet
+tap:Peruuta
+wait:1
+shot:v05-peruutettu
+longpress:samples
+waitfor:Peruuta|5
+shot:v06-pitka
+tap:Huono
+waitfor:Tyytyväisyys tallennettu|5
+wait:4
+tap:samples
+waitfor:Satisfaction|5
+shot:v07-detalji
+tap:Vaihda
+waitfor:Erinomaista|5
+shot:v08-detalji-sheet
+tap:Erinomaista
+wait:1
+shot:v09-detalji-jalkeen
+backswipe
+waitfor:samples|5
+shot:v10-lista-jalkeen
+launch
+tapif:Ohita
+tap:Settings
+tap:Brew logs
+waitfor:samples|10
+shot:v11-uudelleen
+dump:v11-uudelleen

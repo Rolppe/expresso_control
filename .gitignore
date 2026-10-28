@@ -1,0 +1,9 @@
+build/
+.dart_tool/
+.idea/
+*.iml
+ios/Pods/
+ios/Flutter/Generated.xcconfig
+ios/Flutter/flutter_export_environment.sh
+.DS_Store
+.flutter-plugins-dependencies

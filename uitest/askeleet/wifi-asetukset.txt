@@ -1,0 +1,6 @@
+# WIFI-APPI vaihe 3 (20.10.2026): Settings → Yhteys-rivi, tilarivi ja Wi-Fi-avain-kenttä näkyvät
+tapif:Ohita
+tap:Settings
+waitfor:Yhteys|10
+shot:w01-asetukset
+dump:w01-puu

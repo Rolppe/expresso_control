@@ -1,0 +1,12 @@
+# Valmiustilan aika -asetus (6.10.2026): Settings → Valmiustila-valikko (tapxy: "tap:30 min" osui muuhun elementtiin) 30 min → 1 h 15 min; demo-loki näyttää stby:75.
+# Pysyvyys: aja uudelleen valmiustila-tarkistus.txt äpin uudelleenkäynnistyksen jälkeen → arvo 1 h 15 min.
+tapif:Ohita
+tap:Settings
+waitfor:Valmiustila|10
+shot:s01-asetukset
+tapxy:0.8,0.295
+wait:1
+shot:s02-valikko
+tapeq:1 h 15 min
+wait:1
+shot:s03-valittu

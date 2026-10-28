@@ -1,0 +1,11 @@
+# Valmiustilan lämpötila (6.10.2026): Settings → valikko 90 °C → 70 °C; demo-loki näyttää stbt:70.
+# Pysyvyys: aja lepolampo-puu.txt äpin uudelleenkäynnistyksen jälkeen → dumpissa 70 °C.
+tapif:Ohita
+tap:Settings
+waitfor:Valmiustilan lämpötila|10
+tapxy:0.8,0.388
+wait:1
+shot:l02-valikko
+tapeq:70 °C
+wait:1
+shot:l03-valittu

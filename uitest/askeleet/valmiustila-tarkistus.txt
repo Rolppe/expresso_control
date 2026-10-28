@@ -1,0 +1,5 @@
+# Valmiustilan aika säilyy uudelleenkäynnistyksessä: odotus 1 h 15 min (asetettu valmiustila.txt:llä).
+tapif:Ohita
+tap:Settings
+waitfor:Valmiustila|10
+shot:s04-uudelleen

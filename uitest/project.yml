@@ -1,0 +1,27 @@
+name: ExpressoOhjain
+options:
+  deploymentTarget:
+    iOS: "15.0"
+targets:
+  OhjainHost:
+    type: application
+    platform: iOS
+    sources: [Host]
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: io.github.rolppe.expressoOhjainHost
+        GENERATE_INFOPLIST_FILE: YES
+        CODE_SIGNING_ALLOWED: NO
+    scheme:
+      testTargets: [OhjainUITests]
+  OhjainUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    sources: [UITests]
+    dependencies:
+      - target: OhjainHost
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: io.github.rolppe.expressoOhjain.uitests
+        GENERATE_INFOPLIST_FILE: YES
+        CODE_SIGNING_ALLOWED: NO

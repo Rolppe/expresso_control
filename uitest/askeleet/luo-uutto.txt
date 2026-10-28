@@ -1,0 +1,11 @@
+# Odottaa demon seuraavaa uuttoa (~3 min 20 s käynnistyksestä) ja tallentaa sen ilman tyytyväisyyttä,
+# jotta listassa on Lisää-polun rivi. Aja ennen vaihda.txt:tä, jos uusin rivi on jo arvioitu.
+waitfor:Tallenna|260
+shot:u01-lomake
+tap:Todellinen paino
+clear
+type:36.5
+shot:u02-paino
+tap:Tallenna
+wait:2
+shot:u03-tallennettu
