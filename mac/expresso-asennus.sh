@@ -5,7 +5,7 @@ set -u
 export PATH=${MAC_PROJ:-$HOME/Projects}/expresso/expresso-ios-shim:/opt/homebrew/bin:/usr/bin:/bin:/usr/sbin:/sbin
 export DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer
 export LANG=en_US.UTF-8
-P="$HOME/Documents/Koodi/Silvia pico/eXpresso_Grok/legacy/latest/silvia_pico_flutter_UI"
+P="$HOME/src/eXpresso_Grok/legacy/latest/silvia_pico_flutter_UI"
 T=${MAC_PROJ:-$HOME/Projects}/expresso/expresso-ios-asennus
 LAITE=YOUR_DEVICE_UDID
 LABEL=com.example.expresso-asennus
