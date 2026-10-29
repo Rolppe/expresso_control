@@ -3,7 +3,7 @@
 Skooppi `expresso-ios` (rekisteri `expresso-ios/REKISTERI.md`, Tarkoitus ja raja). Työ tehdään Macilla
 `ssh dev-host` -yhteydellä palvelimelta. Jokainen Mac-komento alkaa näin (polussa välilyönti):
 
-    ssh dev-host 'export DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer PATH=/opt/homebrew/bin:$PATH; P="$HOME/Documents/Koodi/Silvia pico/eXpresso_Grok/legacy/latest/silvia_pico_flutter_UI"; cd "$P" && …'
+    ssh dev-host 'export DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer PATH=/opt/homebrew/bin:$PATH; P="$HOME/src/eXpresso_Grok/legacy/latest/silvia_pico_flutter_UI"; cd "$P" && …'
 
 Ei sudoa (`xcode-select` osoittaa CommandLineToolsiin; `DEVELOPER_DIR` ohittaa sen). Aikaraja jokaiseen
 komentoon (`timeout` tai Bash-työkalun timeout), ei putkea paluukoodia vaativiin komentoihin.
@@ -40,7 +40,7 @@ Lue ensin: `pubspec.yaml`, `lib/features/ble/ble_repository.dart:134-200` (iOS-h
 ## Hyväksyntä (pääistunto ajaa itse)
 
 ```
-ssh dev-host 'P="$HOME/Documents/Koodi/Silvia pico/eXpresso_Grok/legacy/latest/silvia_pico_flutter_UI"; /usr/libexec/PlistBuddy -c "Print :NSBluetoothAlwaysUsageDescription" "$P/ios/Runner/Info.plist" && grep -q PERMISSION_BLUETOOTH=1 "$P/ios/Podfile" && test -d "$P/build/ios/iphonesimulator/Runner.app" && grep -q silviaPicoUi "$P/ios/Runner.xcodeproj/project.pbxproj"'
+ssh dev-host 'P="$HOME/src/eXpresso_Grok/legacy/latest/silvia_pico_flutter_UI"; /usr/libexec/PlistBuddy -c "Print :NSBluetoothAlwaysUsageDescription" "$P/ios/Runner/Info.plist" && grep -q PERMISSION_BLUETOOTH=1 "$P/ios/Podfile" && test -d "$P/build/ios/iphonesimulator/Runner.app" && grep -q silviaPicoUi "$P/ios/Runner.xcodeproj/project.pbxproj"'
 ```
 
 ## Älä

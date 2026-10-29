@@ -16,7 +16,7 @@ expresso-ios-äpin iPhoneen yhdellä `ssh dev-host` -komennolla, ja aja sillä y
 
 ## Do
 
-Vakiot: `P="$HOME/Documents/Koodi/Silvia pico/eXpresso_Grok/legacy/latest/silvia_pico_flutter_UI"`,
+Vakiot: `P="$HOME/src/eXpresso_Grok/legacy/latest/silvia_pico_flutter_UI"`,
 `T=$HOME/expresso-ios-asennus`, `LAITE=YOUR_DEVICE_UDID`, label `com.example.expresso-asennus`.
 Macissa ei ole `timeout`ia (`perl -e "alarm N; exec @ARGV" …`). Yksi ssh-komento enintään 590 s.
 
@@ -36,7 +36,7 @@ Macissa ei ole `timeout`ia (`perl -e "alarm N; exec @ARGV" …`). Yksi ssh-komen
 ssh dev-host '~/expresso-ios-asennus/expresso-asennus.sh --check'
 ssh dev-host '~/expresso-ios-asennus/expresso-asennus.sh --tila'
 test "$(ssh dev-host 'shasum < ~/expresso-ios-asennus/expresso-asennus.sh')" = "$(sha1sum < ~/palvelin/expresso-ios/mac/expresso-asennus.sh)"
-ssh dev-host 'grep -q "asennus valmis" ~/expresso-ios-asennus/asennus.loki && test ~/expresso-ios-asennus/projekti/build/ios/iphoneos/Runner.app/Frameworks/App.framework/App -nt "$HOME/Documents/Koodi/Silvia pico/eXpresso_Grok/legacy/latest/silvia_pico_flutter_UI/lib/core/standby_timeout.dart"'
+ssh dev-host 'grep -q "asennus valmis" ~/expresso-ios-asennus/asennus.loki && test ~/expresso-ios-asennus/projekti/build/ios/iphoneos/Runner.app/Frameworks/App.framework/App -nt "$HOME/src/eXpresso_Grok/legacy/latest/silvia_pico_flutter_UI/lib/core/standby_timeout.dart"'
 ```
 
 ## Budget

@@ -7,7 +7,7 @@ Firmware on valmis ja laitteella (Pico 192.0.2.13, UDP 47211, commit 39aec74): p
 
 ## Projekti
 
-Macilla (`ssh dev-host`, aina `timeout`): `"$HOME/Documents/Koodi/Silvia pico/eXpresso_Grok/legacy/latest/silvia_pico_flutter_UI"`
+Macilla (`ssh dev-host`, aina `timeout`): `"$HOME/src/eXpresso_Grok/legacy/latest/silvia_pico_flutter_UI"`
 (lainausmerkit: välilyönnit). Käännösympäristö ja ansat: `~/palvelin/expresso-ios/REKISTERI.md`
 rivit 23–45 (PATH-shim, DEVELOPER_DIR, build-symlinkit, XCUITest-ohjain `expresso-ios/uitest/`).
 **Ensin varmuuskopio:** `~/expresso-ios-varmuus/20261020/` (lib, ios, pubspec.yaml, pubspec.lock, test).

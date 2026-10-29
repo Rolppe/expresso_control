@@ -3,7 +3,7 @@
 Skooppi `expresso-ios` (rekisteri `expresso-ios/REKISTERI.md`). Käyttäjä 5.10.2026: "Äppiin pitää saada optio
 että se pitää näytön aktiivisena". Työ Macilla `ssh dev-host` -yhteydellä. Jokainen Mac-komento alkaa näin:
 
-    ssh dev-host 'export DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer PATH=$HOME/expresso-ios-shim:/opt/homebrew/bin:$PATH; P="$HOME/Documents/Koodi/Silvia pico/eXpresso_Grok/legacy/latest/silvia_pico_flutter_UI"; cd "$P" && …'
+    ssh dev-host 'export DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer PATH=$HOME/expresso-ios-shim:/opt/homebrew/bin:$PATH; P="$HOME/src/eXpresso_Grok/legacy/latest/silvia_pico_flutter_UI"; cd "$P" && …'
 
 Macissa ei ole `timeout`-komentoa: käytä `perl -e "alarm N; exec @ARGV" …` tai Bash-työkalun timeoutia.
 Ei putkea paluukoodia vaativiin komentoihin. `lib/` on yhteinen Android-äpin (skooppi `infra expresso`) kanssa:
@@ -36,7 +36,7 @@ Lue ensin: `pubspec.yaml`; asetusnäkymä ja asetusten tallennus (`grep -rln -i 
 ## Hyväksyntä (pääistunto ajaa itse)
 
 ```
-ssh dev-host 'P="$HOME/Documents/Koodi/Silvia pico/eXpresso_Grok/legacy/latest/silvia_pico_flutter_UI"; grep -q "^  wakelock_plus:" "$P/pubspec.yaml" && grep -rq "WakelockPlus.enable" "$P/lib" && grep -rq "Pidä näyttö päällä" "$P/lib" && test "$P/build/ios/iphonesimulator/Runner.app" -nt "$P/pubspec.yaml" && test "$P/build/ios/iphoneos/Runner.app" -nt "$P/pubspec.yaml"'
+ssh dev-host 'P="$HOME/src/eXpresso_Grok/legacy/latest/silvia_pico_flutter_UI"; grep -q "^  wakelock_plus:" "$P/pubspec.yaml" && grep -rq "WakelockPlus.enable" "$P/lib" && grep -rq "Pidä näyttö päällä" "$P/lib" && test "$P/build/ios/iphonesimulator/Runner.app" -nt "$P/pubspec.yaml" && test "$P/build/ios/iphoneos/Runner.app" -nt "$P/pubspec.yaml"'
 ```
 
 ## Älä
