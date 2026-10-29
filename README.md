@@ -1,5 +1,7 @@
 # expresso_control
 
+[![CI](https://github.com/Rolppe/expresso_control/actions/workflows/ci.yml/badge.svg)](https://github.com/Rolppe/expresso_control/actions/workflows/ci.yml)
+
 A Flutter app (built and run on an iPhone) that monitors and controls a Rancilio Silvia espresso machine through a Raspberry Pi Pico 2 W running the EspressoPico firmware.
 
 The phone talks to the Pico over Bluetooth LE and, when it is on the home network, over authenticated UDP on Wi-Fi. The app picks the better link by itself and keeps a shot log on the phone. The Dart package is named `silvia_pico_ui`; the repository is `expresso_control`.
@@ -13,6 +15,12 @@ The phone talks to the Pico over Bluetooth LE and, when it is on the home networ
 - Connects over BLE or Wi-Fi (UDP). The "Yhteys" setting chooses `auto`, `wifi` or `ble`.
 - Keeps the BLE link alive with the screen locked (iOS `bluetooth-central` background mode) and raises a local notification when a shot has finished so the weight can be entered.
 - Has a demo mode with a simulated Pico, so the whole UI runs in the iOS simulator without hardware.
+
+## Visual
+
+<img src="docs/images/demo-live-brew.png" alt="Dashboard during a brew: 91 C, 9 bar, mode BREW, flow and weight" width="260"> <img src="docs/images/demo-brew-log.png" alt="Brew log detail: summary, phase events and the sample table" width="260">
+
+*Left: the live dashboard 14 s into the demo shot. Right: the stored brew log of that shot (summary, phase events, per-sample table). Both are screenshots from the iOS simulator running the `--dart-define=EXPRESSO_DEMO=true` build, where `lib/features/ble/demo_pico.dart` simulates the machine, so the values are simulated, not measured. Driven with the step driver in [uitest/](uitest/) (the dashboard was captured a few seconds after the first demo shot started; the brew log is the one the app saved for it, with the actual weight entered by hand as 36.5 g).*
 
 ## Architecture at a glance
 
@@ -108,7 +116,7 @@ If you regenerate the freezed code: `dart run build_runner build --delete-confli
 
 Not covered: the real BLE stack, UI widgets, the iOS notification path and the launchd installer. Those were checked by hand or with the XCUITest driver in `uitest/` on a Mac with a simulator or the phone.
 
-Test run status: when these docs were written, `flutter test` was started on the author's Mac with a 600 s limit and produced no test output before the limit (exit 124), so no pass/fail result is claimed here. The count of 92 is from reading the files, not from a run.
+Test run status: CI (GitHub Actions, Ubuntu, Flutter 3.41.6) runs `flutter test` on every push; the first run on 29 October 2026 passed all 92 tests. On the author's Mac, `flutter test` stalls before any output (the test runner process idles), so the runs are on CI.
 
 ## How it was built
 
