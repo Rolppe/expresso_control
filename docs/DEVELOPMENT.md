@@ -4,10 +4,10 @@ How this app was developed, and a guide to the internal working files that are k
 
 ## How development worked
 
-Mikko Paaso set the goal (the existing Android app for the Silvia controller, ported to an iPhone, then extended with Wi-Fi) and made the decisions. Claude Code agents in two roles did the rest:
+Mikko Paaso set the goal (the existing Android app for the Silvia controller, ported to an iPhone, then extended with Wi-Fi), designed the architecture, made the decisions, defined the acceptance criteria and verified the results. Each task was specified as a written brief and handled in two roles:
 
-- **Planner** (a stronger model in an interactive session, recorded in `paketit/delegation.jsonl` as Opus 5.5 for the first two packets and Fable 5.1 for the last two). It reads the registers, measures the environment, and writes a brief plus, for scripts, a spec.
-- **Executor** (a Sonnet subagent, `model: sonnet` in all four logged packets). It runs the brief's steps and reports in a fixed format: files changed, acceptance result, budget verdict, iterations, whether it stopped, and at most one question.
+- **Planner** (a stronger model in an interactive session, recorded in `paketit/delegation.jsonl`). It reads the registers, measures the environment, and writes a brief plus, for scripts, a spec.
+- **Executor** (a lower-cost model in all four logged packets). It runs the brief's steps and reports in a fixed format: files changed, acceptance result, budget verdict, iterations, whether it stopped, and at most one question.
 
 A brief in `paketit/` has the same sections each time: Task, Files (which paths it may touch, which it must not), Do, Acceptance (shell commands whose exit codes decide), Budget (for example a line-count limit with `wc -l`), Stop (conditions under which the agent must stop and ask rather than improvise), Report. Some briefs also have:
 

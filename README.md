@@ -2,7 +2,7 @@
 
 [![CI](https://github.com/Rolppe/expresso_control/actions/workflows/ci.yml/badge.svg)](https://github.com/Rolppe/expresso_control/actions/workflows/ci.yml)
 
-A Flutter app (built and run on an iPhone) that monitors and controls a Rancilio Silvia espresso machine through a Raspberry Pi Pico 2 W running the EspressoPico firmware.
+Flutter app (Riverpod, freezed), built and run on an iPhone, for the Rancilio Silvia espresso machine controller (a Raspberry Pi Pico 2 W running the EspressoPico firmware): Bluetooth LE and authenticated UDP over Wi-Fi with automatic link selection, live temperature and pressure charts, calibration wizards, a shot log stored on the phone and a simulated Pico for the iOS simulator. CI on GitHub Actions.
 
 The phone talks to the Pico over Bluetooth LE and, when it is on the home network, over authenticated UDP on Wi-Fi. The app picks the better link by itself and keeps a shot log on the phone. The Dart package is named `silvia_pico_ui`; the repository is `expresso_control`.
 
@@ -80,7 +80,7 @@ ios/                 Runner project, Info.plist, AppDelegate (notification chann
 test/                9 test files, 2 100 lines
 uitest/              XCUITest step-file driver and step files (simulator)
 mac/                 install script and launchd plist for the free 7-day signing
-paketit/             agent briefs, specs, corrections, delegation log (Finnish)
+paketit/             briefs, specs, corrections, delegation log (Finnish)
 REKISTERI.md, HISTORIA.md, ARKISTO.md   working notes (Finnish), see docs/DEVELOPMENT.md
 app-lahde-20261028.patch                newer UI source changes, not installed (see docs/DEVELOPMENT.md)
 ```
@@ -120,7 +120,7 @@ Test run status: CI (GitHub Actions, Ubuntu, Flutter 3.41.6) runs `flutter test`
 
 ## How it was built
 
-Mikko Paaso set the requirements, designed the architecture and directed the work; Claude Code AI agents wrote the code from written briefs. Each brief (in [paketit/](paketit/)) lists the files an agent may touch, the steps, an acceptance script and a stop condition; the agent's result counted only when the acceptance commands, tests and simulator or device runs passed. When one failed, the planner wrote a correction file rather than patching by hand, and the briefs show three of these. Mikko reviewed the results and decided what to keep. The Android app this was ported from, the BLE link and the firmware protocol came earlier; the iOS port, the Wi-Fi link, the demo mode, the UI driver and the install automation are documented in the registers. The repository was squashed to 2 commits (2026-10-28 and 2026-10-29); the second one carries a `Co-Authored-By` trailer, and the day-by-day history is in [HISTORIA.md](HISTORIA.md). More in [docs/DEVELOPMENT.md](docs/DEVELOPMENT.md).
+Mikko Paaso set the requirements, designed the architecture, defined the acceptance criteria and verified the results. Nothing was accepted on a report, only on a measurement or a passing check: the acceptance commands, `flutter test` on CI and runs on the simulator or the phone. Each task was specified as a written brief (in [paketit/](paketit/)) that lists the files it may touch, the steps, an acceptance script and a stop condition. When a check failed, the cause was measured and a correction file was written rather than patching by hand, and the briefs show three of these; errors were fixed in a tight check-and-measure loop. The Android app this was ported from, the BLE link and the firmware protocol came earlier; the iOS port, the Wi-Fi link, the demo mode, the UI driver and the install automation are documented in the registers. The repository was squashed to 2 commits (2026-10-28 and 2026-10-29), and the day-by-day history is in [HISTORIA.md](HISTORIA.md). More in [docs/DEVELOPMENT.md](docs/DEVELOPMENT.md).
 
 ## Status and limitations
 
